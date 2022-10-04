@@ -1,0 +1,125 @@
+{
+    "env": {
+        "es6": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "./tsconfig.json",
+        "sourceType": "module",
+        "ecmaVersion": 2019
+    },
+    "plugins": [
+        "@darraghor/nestjs-typed",
+        "@typescript-eslint",
+        "unicorn",
+        "jest"
+    ],
+    "extends": [
+        "airbnb",
+        "airbnb-typescript/base",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript",
+        "plugin:sonarjs/recommended",
+        "plugin:security/recommended",
+        "plugin:eslint-comments/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@darraghor/nestjs-typed/recommended",
+        "plugin:@typescript-eslint/eslint-recommended"
+    ],
+    "rules": {
+        "@typescript-eslint/indent": ["error", 4],
+        "import/prefer-default-export": "off",
+        "unicorn/no-fn-reference-in-iterator": "off",
+        "unicorn/no-array-for-each": "off",
+        "unicorn/no-null": "off",
+        "unicorn/consistent-destructuring": "off",
+        "unicorn/no-array-reduce": "off",
+        "unicorn/prefer-spread": "off",
+        "unicorn/no-array-callback-reference": "off",
+        "unicorn/consistent-function-scoping": "off",
+        "unicorn/no-useless-undefined": "off",
+        "unicorn/prevent-abbreviations": [
+            "error",
+            {
+                "allowList": { "Param": true, "Req": true, "Res": true },
+                "ignore": [
+                    ".e2e"
+                ]
+            }
+        ],
+        "unicorn/filename-case": [
+            "error",
+            {
+                "cases": {
+                    "camelCase": true,
+                    "kebabCase": true
+                }
+            }
+        ],
+        "eslint-comments/disable-enable-pair": [
+            "error",
+            { "allowWholeFile": true }
+        ],
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "selector": "default",
+                "format": ["camelCase"]
+            },
+            {
+                "selector": "variable",
+                "format": ["PascalCase", "UPPER_CASE"],
+                "types": ["boolean"],
+                "prefix": ["is", "should", "has", "can", "did", "will"]
+            },
+            {
+                "selector": "variableLike",
+                "format": ["camelCase", "UPPER_CASE", "PascalCase"]
+            },
+            {
+                "selector": "typeProperty",
+                "format": ["UPPER_CASE"]
+            },
+            {
+                "selector": "parameter",
+                "format": ["camelCase"]
+            },
+            {
+                "selector": "memberLike",
+                "modifiers": ["private"],
+                "format": ["camelCase"],
+                "leadingUnderscore": "forbid"
+            },
+            {
+                "selector": "typeLike",
+                "format": ["PascalCase"]
+            },
+            {
+                "selector": "objectLiteralProperty",
+                "format": ["camelCase", "UPPER_CASE"]
+            },
+            {
+                "selector": "property",
+                "modifiers": ["readonly"],
+                "format": ["PascalCase"]
+            },
+            {
+                "selector": "enumMember",
+                "format": ["UPPER_CASE"]
+            }
+        ]
+    },
+    "settings": {
+        "import/parsers": {
+            "@typescript-eslint/parser": [".ts", ".tsx"]
+        },
+        "import/resolver": {
+            "node": {
+                "extensions": [
+                    ".ts"
+                ]
+            }
+        }
+    }
+}
